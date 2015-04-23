@@ -12,6 +12,10 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 #ADD Docker/nginx.conf /etc/nginx/nginx.conf
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD php-fpm.conf /usr/local/etc/php-fpm.conf
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD php.conf /etc/nginx/php.conf
+ADD index.php /var/www/index.php
 
 
 VOLUME ["/var/cache/nginx"]
@@ -19,14 +23,5 @@ VOLUME ["/var/cache/nginx"]
 EXPOSE 80 443
 
 CMD ["/usr/bin/supervisord"]
-
-# TODO: Use supervisord to run both fpm and nginx
-# TODO: All logs to stdout and stderr
-# TODO: nginx.conf
-# TODO: php-fpm.conf
-# TODO: php.ini
-# TODO: composer dependencies
-#COPY apache2/apache2.conf /etc/apache2/apache2.conf
-#RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
 
 
