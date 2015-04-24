@@ -18,10 +18,10 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD php-fpm.conf /usr/local/etc/php-fpm.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD php.conf /etc/nginx/php.conf
-ADD index.php /var/www/index.php
+ADD index.php /var/www/html/index.php
 
 
-VOLUME ["/var/cache/nginx"]
+VOLUME ["/var/cache/nginx", "/var/www/html"]
 
 EXPOSE 80 443
 
