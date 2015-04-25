@@ -19,7 +19,7 @@ ADD php-fpm.conf /usr/local/etc/php-fpm.conf
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD php.conf /etc/nginx/php.conf
 ADD index.php /var/www/html/index.php
-
+ADD default-site.conf /etc/nginx/sites-enabled/99-default
 
 VOLUME ["/var/cache/nginx", "/var/www/html"]
 
