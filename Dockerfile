@@ -3,7 +3,7 @@ FROM php:fpm
 MAINTAINER Andri Óskarsson "andri80@gmail.com"
 
 RUN apt-get update && \
-    apt-get install -y ca-certificates nginx supervisor && \
+    apt-get install -y ca-certificates nginx-extras supervisor && \
     apt-get install -y libxml2-dev libmcrypt-dev libpq-dev libpng-dev libjpeg-dev && \
     rm -rf /var/lib/apt/lists/*
 
@@ -17,6 +17,7 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD php-fpm.conf /usr/local/etc/php-fpm.conf
 ADD nginx.conf /etc/nginx/nginx.conf
+ADD ssl_params /etc/nginx/ssl_params
 ADD php.conf /etc/nginx/php.conf
 ADD index.php /var/www/html/index.php
 ADD default-site.conf /etc/nginx/sites-enabled/99-default
