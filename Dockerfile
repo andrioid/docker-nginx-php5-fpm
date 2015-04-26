@@ -4,6 +4,7 @@ MAINTAINER Andri Óskarsson "andri80@gmail.com"
 
 RUN apt-get update && \
     apt-get install -y ca-certificates nginx-extras supervisor && \
+    apt-get install -y git mercurial subversion && \
     apt-get install -y libxml2-dev libmcrypt-dev libpq-dev libpng-dev libjpeg-dev && \
     rm -rf /var/lib/apt/lists/*
 
