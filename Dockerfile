@@ -1,4 +1,4 @@
-FROM php:fpm
+FROM php:fpm:latest
 
 MAINTAINER Andri Óskarsson "andri80@gmail.com"
 
