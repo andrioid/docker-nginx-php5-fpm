@@ -6,9 +6,8 @@ RUN apt-get update && \
     apt-get install -y ca-certificates nginx-extras supervisor && \
     apt-get install -y git mercurial subversion && \
     apt-get install -y libxml2-dev libmcrypt-dev libpq-dev libpng-dev libjpeg-dev && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN /usr/local/bin/docker-php-ext-install mcrypt mysql mysqli simplexml pdo pgsql soap xmlrpc pdo_mysql gd exif pdo_pgsql xml
+    rm -rf /var/lib/apt/lists/* && \
+	/usr/local/bin/docker-php-ext-install mcrypt mysql mysqli simplexml pdo pgsql soap xmlrpc pdo_mysql gd exif pdo_pgsql xml
 
 # forward request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
