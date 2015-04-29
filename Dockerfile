@@ -1,4 +1,4 @@
-FROM php:fpḿ
+FROM php:fpm
 
 MAINTAINER Andri Óskarsson "andri80@gmail.com"
 
